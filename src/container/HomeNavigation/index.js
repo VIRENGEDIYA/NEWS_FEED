@@ -8,7 +8,7 @@ import { fetchTodayNews } from '../../actions/TopNews'
 import { connect } from 'react-redux'
 import FlatListComponent from '../../components/FlatList';
 import HomeCard from '../../components/homeCard';
-import NewsList from './NewsList';
+import CategoryNewsList from './CategoryNewsList';
 
 
 
@@ -57,8 +57,7 @@ export class HomeNavigation extends Component {
                 <Tabs renderTabBar={()=> <ScrollableTab />} onChangeTab={()=>{}}  tabBarPosition={"top"}>
                     <Tab heading="Top News" >
                         {/* <Tab1 /> */}
-                       <NewsList newsData={business} moreData={()=>this._moreData()}  />
-                        
+                       
                     </Tab>
                     <Tab heading="Business">
                         {/* <Tab2 /> */}

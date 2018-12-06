@@ -15,7 +15,7 @@ import constant from '../../constant';
 // import { SIGPIPE } from 'constants';
 
 
-export class NewsList extends Component {
+export class CategoryNewsList extends Component {
     // constructor(props){
     //     super(props)
     //     this.state = {
@@ -97,7 +97,7 @@ export class NewsList extends Component {
                                 onRefresh={this.spinnerLoading()}
                             />
                         } 
-                        // ending ={this.props.moreData}
+                        ending ={this.props.moreData}
                         onEndReachedThreshold = {0}
                         
                         />
@@ -114,7 +114,7 @@ export class NewsList extends Component {
 //     }
 // }
 
-export default NewsList
+export default CategoryNewsList
 
 
 const styles = StyleSheet.create({

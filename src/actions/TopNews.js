@@ -56,7 +56,7 @@ export const fetchTodayNews = (category,pageSize) => {
             axios.get(`https://newsapi.org/v2/top-headlines?category=${category}&from=${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}&pageSize=${pageSize}&apiKey=5a98ae8d682f4866a7a9e2d5e8fe9027`)
                 .then(response => {
 
-                    console.log("==============snjvnsfjvs======",{[category] : response.data.articles})
+                    console.log("==============snjvnsfjv    s======",{[category] : response.data.articles})
                     // let [category] = {...response.data.articles}
                    
                     dispatch(getTodayDate({[category] :  response.data.articles}))
@@ -76,7 +76,7 @@ export const fetchTodayNews = (category,pageSize) => {
 export const fetchTopNewsByCategory = (category,pageSize) => {
     // console.log("===========",country,"=============",category)
     return (dispatch) => {
-        return axios.get(`https://newsapi.org/v2/top-headlines?category=${category}&from=${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}&pageSize=${pageSize}&apiKey=5a98ae8d682f4866a7a9e2d5e8fe9027`)
+        return axios.get(`https://newsapi.org/v2/top-headlines?category=${category}&pageSize=${pageSize}&apiKey=5a98ae8d682f4866a7a9e2d5e8fe9027`)
             .then(response => {
                 // console.log("====================",{[category] : response.data.articles})
                 dispatch(getTopNewsByCategory(response.data.articles))

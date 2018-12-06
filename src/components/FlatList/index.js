@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { FlatList} from 'react-native'
 import { View } from 'native-base';
 
-export const FlatListComponent = (props) => {
-    // console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",props)
+
+
+export class index extends Component {
+  render() {
     const { rootData,style,ending,showsHorizontalScrollIndicator,onEndReachedThreshold,refreshControl,horizontal } = props
     return (
-        
         <FlatList              
             data ={rootData}
             renderItem = {props.renderItem}  
@@ -22,7 +23,8 @@ export const FlatListComponent = (props) => {
             // style = {style}
         />
         )
-        
+  }
 }
+
 
 export default FlatListComponent
