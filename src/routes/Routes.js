@@ -11,7 +11,7 @@ const csNavOptions = getDrawerNavigationOptions('Customer Service', Colors.prima
 
 
  const DrawerIcon = [
-    homeNavOptions,userDrawerIcon,cs
+    homeNavOptions,userDrawerIcon,csNavOptions
  ]
 
 export default DrawerIcon

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet } from 'react-native'
 import { Container, Item, Input, Icon, Button, Header, Content, Picker, Right } from 'native-base';
-import Countries from '../../assets/Countries'
-import Dropdown from '../Dropdown'
+import Countries from '../assets/Countries'
+import Dropdown from './dropdown'
 
 // const country = Countries
 

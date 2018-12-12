@@ -1,51 +1,19 @@
 import React, { Component } from 'react'
-import Icon from 'react-native-vector-icons/FontAwesome'
-import { FlatList,View } from "react-native"
-import { Content, Text, Card,  CardItem, Thumbnail, Button, Tabs, Tab, ScrollableTab, Container, } from 'native-base';
-import TopHeader from '../../components/Header';
-import SectionText from '../../components/sectionText';
-import { fetchTodayNews } from '../../actions/TopNews'
+import { View } from 'react-native'
+import { Tabs, Tab, ScrollableTab, Container, Spinner, } from 'native-base';
+import TopHeader from '../../components/topHeader';
+import { fetchGeneralNews } from '../../actions/categoryAction'
 import { connect } from 'react-redux'
-import FlatListComponent from '../../components/FlatList';
-import HomeCard from '../../components/homeCard';
-import CategoryNewsList from './CategoryNewsList';
+import CategoryNewsList from './categoryNewsList';
+
 
 
 
 export class HomeNavigation extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            page:1,
-            loading : false,
-            pageSize:20
-        }
-    }
-
-    componentWillMount =() => {
-        this._todayData ()
-    }
-
-    _moreData = () => {
-        this.setState({
-            pageSize : this.state.pageSize + 20
-        },() => this._todayData())
-    }
-    _todayData =() =>{
-        console.log("In todayData")
-        // this.props.dispatch(fetchTodayNews("general",5))
-        this.props.dispatch(fetchTodayNews("business",this.state.pageSize))
-        
-        // this.props.dispatch(fetchTodayNews("entertainment",5))
-        // this.props.dispatch(fetchTodayNews("sports",5))
-        // this.props.dispatch(fetchTodayNews("health",5))
-        // this.props.dispatch(fetchTodayNews("science",5))
-        // this.props.dispatch(fetchTodayNews("technology",5))
-    }
+ 
 
     render() {
-        console.log(".................................................",this.props.category)
-        const { business} = this.props.category
+        const { general,business,entertainment,health,sports,technology,science,refreshing } = this.props.category
         return (
             <Container>
                 <TopHeader
@@ -54,29 +22,76 @@ export class HomeNavigation extends Component {
                     onLeftClick={() => { this.props.navigation.openDrawer() }}
                 />
 
-                <Tabs renderTabBar={()=> <ScrollableTab />} onChangeTab={()=>{}}  tabBarPosition={"top"}>
+                <Tabs renderTabBar={()=> <ScrollableTab />}  tabBarPosition={"top"}>
                     <Tab heading="Top News" >
-                        {/* <Tab1 /> */}
-                       
+                        <CategoryNewsList 
+                            category ="general"
+                            categoryDate = {general} 
+                            refreshing={refreshing}
+                            navigation={(item) => { this.props.navigation.navigate("CategoryContent", { data: item }) }} 
+                            // renderList={() => {this.props.dispatch(fetchGeneralNews("general",this.state.page,this.state.pageSize))} } 
+                            renderList={ (category,page,pageSize) => {this.props.dispatch(fetchGeneralNews(category,page,pageSize))}}
+                             />
                     </Tab>
                     <Tab heading="Business">
-                        {/* <Tab2 /> */}
+                        <CategoryNewsList 
+                            category ="business"
+                            categoryDate = {business} 
+                            refreshing={refreshing} 
+                            navigation={(item) => { this.props.navigation.navigate("CategoryContent", { data: item }) }} 
+                            renderList={ (category,page,pageSize) => {this.props.dispatch(fetchGeneralNews(category,page,pageSize))}}
+                             />
                     </Tab>
                     <Tab heading="Entertainment">
-                        {/* <Tab3 /> */}
-                    </Tab>
-                    <Tab heading="Sports">
-                        {/* <Tab4 /> */}
+                        
+                        <CategoryNewsList 
+                            category ="entertainment"
+                            categoryDate = {entertainment} 
+                            refreshing={refreshing} 
+                            navigation={(item) =>this.props.navigation.navigate("CategoryContent", { data: item })} 
+                            renderList={ (category,page,pageSize) => {this.props.dispatch(fetchGeneralNews(category,page,pageSize))}}                            
+                            />
                     </Tab>
                     <Tab heading="Health">
                         {/* <Tab5 /> */}
+                        <CategoryNewsList 
+                            category ="health"
+                            categoryDate = {health} 
+                            refreshing={refreshing} 
+                            navigation={(item) => { this.props.navigation.navigate("CategoryContent", { data: item }) }} 
+                            renderList={ (category,page,pageSize) => {this.props.dispatch(fetchGeneralNews(category,page,pageSize))}}
+                        />
+                    </Tab>
+                    <Tab heading="Sports">
+                        {/* <Tab4 /> */}
+                        <CategoryNewsList 
+                            category ="sports"    
+                            categoryDate = {sports} 
+                            refreshing={refreshing} 
+                            navigation={(item) => { this.props.navigation.navigate("CategoryContent", { data: item }) }} 
+                            renderList={ (category,page,pageSize) => {this.props.dispatch(fetchGeneralNews(category,page,pageSize))}}
+                        />
                     </Tab>
                     <Tab heading="Technology">
                         {/* <Tab5 /> */}
+                        <CategoryNewsList
+                            category ="technology" 
+                            categoryDate = {technology} 
+                            refreshing={refreshing} 
+                            navigation={(item) => { this.props.navigation.navigate("CategoryContent", { data: item }) }} 
+                            renderList={ (category,page,pageSize) => {this.props.dispatch(fetchGeneralNews(category,page,pageSize))}}                            
+                        />
                     </Tab>
                     <Tab heading="Science">
                         {/* <Tab5 /> */}
-                    </Tab>
+                        <CategoryNewsList 
+                            category ="science"
+                            categoryDate = {science} 
+                            refreshing={refreshing} 
+                            navigation={(item) => { this.props.navigation.navigate("CategoryContent", { data: item }) }} 
+                            renderList={ (category,page,pageSize) => {this.props.dispatch(fetchGeneralNews(category,page,pageSize))}}                    
+                        />
+                    </Tab>  
                 </Tabs>
             </Container>
         )
@@ -84,10 +99,9 @@ export class HomeNavigation extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log("==================DNDFJSDSDNKSJDNKSDNCSDNNSKDNCKJDSNSDKJN=============",state.categoryNews.category)
     return {
-        category : state.categoryNews.category,       
+        category : state.categoryNews,       
     }
 }
 
-export default connect(mapStateToProps)(HomeNavigation)
+export default  connect(mapStateToProps)(HomeNavigation)

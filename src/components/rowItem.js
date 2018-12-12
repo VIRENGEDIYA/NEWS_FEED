@@ -1,5 +1,5 @@
 import React from 'react'
-import { View ,Image,  } from 'react-native'
+import { View ,Image  } from 'react-native'
 import {  Text, Card, ListItem, Button, CardItem } from 'native-base';
 
 const RowItem = (props) => {
