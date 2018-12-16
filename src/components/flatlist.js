@@ -7,7 +7,7 @@ export const FlatListComponent = (props) =>{
         <FlatList              
             data ={rootData}
             renderItem = {props.renderItem}  
-            // keyExtractor = {({item,index}) => item.source.name}
+            keyExtractor = {props.keyExtractor}
             showsHorizontalScrollIndicator={showsHorizontalScrollIndicator && showsHorizontalScrollIndicator}
             refreshControl = {
                 refreshControl && refreshControl

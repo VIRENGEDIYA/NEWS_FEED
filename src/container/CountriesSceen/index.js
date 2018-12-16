@@ -6,7 +6,7 @@ import Countries from '../../assets/Countries'
 import RowItem from '../../components/rowItem';
 
 
-export class TopHeadlinesNavigation extends Component {
+export class CountriesSceen extends Component {
     render() {
         return (
             <Content>
@@ -33,4 +33,4 @@ export class TopHeadlinesNavigation extends Component {
 }
 
 
-export default TopHeadlinesNavigation
+export default CountriesSceen

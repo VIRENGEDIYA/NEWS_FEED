@@ -10,8 +10,7 @@ import CategoryNewsList from './categoryNewsList';
 
 
 export class HomeNavigation extends Component {
- 
-
+    
     render() {
         const { general,business,entertainment,health,sports,technology,science,refreshing } = this.props.category
         return (
@@ -26,27 +25,25 @@ export class HomeNavigation extends Component {
                     <Tab heading="Top News" >
                         <CategoryNewsList 
                             category ="general"
-                            categoryDate = {general} 
+                            categoryData = {general} 
                             refreshing={refreshing}
                             navigation={(item) => { this.props.navigation.navigate("CategoryContent", { data: item }) }} 
-                            // renderList={() => {this.props.dispatch(fetchGeneralNews("general",this.state.page,this.state.pageSize))} } 
                             renderList={ (category,page,pageSize) => {this.props.dispatch(fetchGeneralNews(category,page,pageSize))}}
                              />
                     </Tab>
                     <Tab heading="Business">
                         <CategoryNewsList 
                             category ="business"
-                            categoryDate = {business} 
+                            categoryData = {business} 
                             refreshing={refreshing} 
                             navigation={(item) => { this.props.navigation.navigate("CategoryContent", { data: item }) }} 
                             renderList={ (category,page,pageSize) => {this.props.dispatch(fetchGeneralNews(category,page,pageSize))}}
                              />
                     </Tab>
-                    <Tab heading="Entertainment">
-                        
+                    <Tab heading="Entertainment"> 
                         <CategoryNewsList 
                             category ="entertainment"
-                            categoryDate = {entertainment} 
+                            categoryData = {entertainment} 
                             refreshing={refreshing} 
                             navigation={(item) =>this.props.navigation.navigate("CategoryContent", { data: item })} 
                             renderList={ (category,page,pageSize) => {this.props.dispatch(fetchGeneralNews(category,page,pageSize))}}                            
@@ -56,7 +53,7 @@ export class HomeNavigation extends Component {
                         {/* <Tab5 /> */}
                         <CategoryNewsList 
                             category ="health"
-                            categoryDate = {health} 
+                            categoryData = {health} 
                             refreshing={refreshing} 
                             navigation={(item) => { this.props.navigation.navigate("CategoryContent", { data: item }) }} 
                             renderList={ (category,page,pageSize) => {this.props.dispatch(fetchGeneralNews(category,page,pageSize))}}
@@ -66,7 +63,7 @@ export class HomeNavigation extends Component {
                         {/* <Tab4 /> */}
                         <CategoryNewsList 
                             category ="sports"    
-                            categoryDate = {sports} 
+                            categoryData = {sports} 
                             refreshing={refreshing} 
                             navigation={(item) => { this.props.navigation.navigate("CategoryContent", { data: item }) }} 
                             renderList={ (category,page,pageSize) => {this.props.dispatch(fetchGeneralNews(category,page,pageSize))}}
@@ -76,7 +73,7 @@ export class HomeNavigation extends Component {
                         {/* <Tab5 /> */}
                         <CategoryNewsList
                             category ="technology" 
-                            categoryDate = {technology} 
+                            categoryData = {technology} 
                             refreshing={refreshing} 
                             navigation={(item) => { this.props.navigation.navigate("CategoryContent", { data: item }) }} 
                             renderList={ (category,page,pageSize) => {this.props.dispatch(fetchGeneralNews(category,page,pageSize))}}                            
@@ -86,7 +83,7 @@ export class HomeNavigation extends Component {
                         {/* <Tab5 /> */}
                         <CategoryNewsList 
                             category ="science"
-                            categoryDate = {science} 
+                            categoryData = {science} 
                             refreshing={refreshing} 
                             navigation={(item) => { this.props.navigation.navigate("CategoryContent", { data: item }) }} 
                             renderList={ (category,page,pageSize) => {this.props.dispatch(fetchGeneralNews(category,page,pageSize))}}                    

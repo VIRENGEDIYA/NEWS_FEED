@@ -30,14 +30,14 @@ export class CategoryNewsList extends Component {
     }
 
     render() {
-        const { categoryDate, } = this.props
+        const { categoryData, } = this.props
         return (
             <View>
                 {(this.props.refreshing) ?
                     <Spinner />
                     :
                     <FlatListComponent
-                        rootData={categoryDate}
+                        rootData={categoryData}
                         renderItem={({ item }) => <NewsCard article={item} onClick={() => this.props.navigation(item)} />}
                         showsHorizontalScrollIndicator={true}
                         horizontal={false}
