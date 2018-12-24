@@ -3,7 +3,7 @@ import HomeScreen from "../container/HomeScreen";
 import CategoryNewsList from "../container/HomeScreen/categoryNewsList";
 import NewsContent from "../container/CountriesSceen/newsContent";
 import CountriesSceen from "../container/CountriesSceen";
-import newsList, { NewsList } from "../container/CountriesSceen/newsList";
+import  NewsList  from "../container/CountriesSceen/newsList";
 import SourcesScreen from "../container/SourcesScreen";
 import TopHeader from '../components/topHeader';
 import SourceDetails from '../container/SourcesScreen/sourceDetails';

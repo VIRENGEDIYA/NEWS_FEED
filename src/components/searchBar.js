@@ -11,13 +11,9 @@ export class SearchBar extends Component {
         return (
             <Header searchBar  rounded style={{ backgroundColor: "#eaeaea" }} >
                 <Item>
-                    {/* <Icon name="search" /> */}
                     <Input placeholder="Search" onChangeText={(text) =>{ this.props.onChange(text)}} style={{paddingRight:20}} />
                     <Icon name="search" />
                 </Item>
-                {/* <Right>
-                   <Dropdown />
-                </Right> */}
             </Header>
         )
     }

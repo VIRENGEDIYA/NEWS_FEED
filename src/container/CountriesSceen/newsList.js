@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Text, Spinner, View, } from 'native-base';
+import { Text, Spinner, View, Container, Content, } from 'native-base';
 import { connect } from 'react-redux'
-import { fetchTopNewsByCountryWithCategory, getClearState } from '../../actions/topNewsAction'
+import { getClearState } from '../../actions/topNewsAction'
+import { fetchTopNewsByCountryWithCategory } from '../../api/countriesApi'
 import { FlatList, RefreshControl } from 'react-native'
 import Categories from '../../assets/Categories'
 import SearchBar from '../../components/searchBar';
@@ -76,11 +77,9 @@ export class NewsList extends Component {
                     leftIconName={"chevron-left"}
                     onLeftClick={() => { this.props.navigation.goBack(null); this._clearData() }}
                 />
-                {/* <SearchBar onChange={(text) => this._searchNews(text)} /> */}
-
                 {this._categoryList()}
-
-                {refreshing ?
+             
+                {refreshing ? 
                     <Spinner />
                     :
                     <FlatListComponent
@@ -94,9 +93,10 @@ export class NewsList extends Component {
                                 onRefresh={this.spinnerLoading()}
                             />
                         }
+                        keyExtractor={(item, index) => index.toString()}
                         ending={() => { this._moreData() }}
                         onEndReachedThreshold={0}
-                        style={{ borderWidth: 1, marginBottom: 150, borderColor: "black" }}
+                        style={{ borderWidth: 1, marginBottom: 100, borderColor: "black" }}
 
                     />
                 }

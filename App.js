@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { Component } from 'react';
 import {Text, View, Image } from 'react-native';
 import { DrawerNavigator,StackNavigator, DrawerItems } from 'react-navigation'
@@ -33,19 +25,16 @@ export default class App extends Component {
     }
 }
 
-
-
 const RootDrawer = DrawerNavigator({   
-    Sources :{
-        screen : SourcesNavigation,
-    },
-    Home :{
+     Home :{
         screen : HomeNavigation,
-        // icon :  <Icon name="home" size={30} />
     },
     World :{
         screen :CountriesScreen,
     } ,
+    Sources :{
+        screen : SourcesNavigation,
+    },
 
 },
 {

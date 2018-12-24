@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
-import { Tabs, Tab, ScrollableTab, Container, Spinner, } from 'native-base';
+import { Tabs, Tab, ScrollableTab, Container } from 'native-base';
 import TopHeader from '../../components/topHeader';
-import { fetchGeneralNews } from '../../actions/categoryAction'
+import { fetchGeneralNews } from '../../api/categoryApi'
 import { connect } from 'react-redux'
 import CategoryNewsList from './categoryNewsList';
 
@@ -10,17 +9,39 @@ import CategoryNewsList from './categoryNewsList';
 
 
 export class HomeNavigation extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            search : false
+        }
+    }
+
+    searchNews = () => {
+        <TopHeader
+            leftIconName={"back"}
+        />
+    }
     
     render() {
         const { general,business,entertainment,health,sports,technology,science,refreshing } = this.props.category
         return (
             <Container>
-                <TopHeader
-                    leftIconName={"bars"}
-                    title={"Home"}
-                    onLeftClick={() => { this.props.navigation.openDrawer() }}
-                />
-
+                {
+                    this.state.search ?
+                        <TopHeader
+                            leftIconName={"chevron-left"}
+                            isSearch = {this.state.search}
+                            onLeftClick={() => { this.setState({search:false}) }}
+                        />
+                    :
+                        <TopHeader
+                            leftIconName={"bars"}
+                            title={"Home"}
+                            onLeftClick={() => { this.props.navigation.openDrawer() }}
+                        />
+                        
+                }
+                
                 <Tabs renderTabBar={()=> <ScrollableTab />}  tabBarPosition={"top"}>
                     <Tab heading="Top News" >
                         <CategoryNewsList 
@@ -50,7 +71,6 @@ export class HomeNavigation extends Component {
                             />
                     </Tab>
                     <Tab heading="Health">
-                        {/* <Tab5 /> */}
                         <CategoryNewsList 
                             category ="health"
                             categoryData = {health} 
@@ -60,7 +80,6 @@ export class HomeNavigation extends Component {
                         />
                     </Tab>
                     <Tab heading="Sports">
-                        {/* <Tab4 /> */}
                         <CategoryNewsList 
                             category ="sports"    
                             categoryData = {sports} 
@@ -70,7 +89,6 @@ export class HomeNavigation extends Component {
                         />
                     </Tab>
                     <Tab heading="Technology">
-                        {/* <Tab5 /> */}
                         <CategoryNewsList
                             category ="technology" 
                             categoryData = {technology} 
@@ -80,7 +98,6 @@ export class HomeNavigation extends Component {
                         />
                     </Tab>
                     <Tab heading="Science">
-                        {/* <Tab5 /> */}
                         <CategoryNewsList 
                             category ="science"
                             categoryData = {science} 

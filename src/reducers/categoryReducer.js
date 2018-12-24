@@ -6,6 +6,7 @@ export const INITIAL_STATE = {
 
 export const categoryNews = (state = INITIAL_STATE, action) => {
     switch (action.type) {
+        
         case 'API_GET_GENERAL_CATEGORY':
             let generalData = [...state.general || [],...action.payload ]
             return {...state,general:generalData,refreshing:false}

@@ -4,8 +4,7 @@ import { ListItem, Thumbnail, Left, Right, Body, Text } from 'native-base';
 
 export class NewsCard extends Component {
     render() {
-        const fixImage = "https://wolper.com.au/wp-content/uploads/2017/10/image-placeholder.jpg"
-        // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", this.props)   
+        const fixImage = "https://wolper.com.au/wp-content/uploads/2017/10/image-placeholder.jpg" 
         const { title, urlToImage, description } = this.props.article;
         return (
             <ListItem onPress={this.props.onClick} thumbnail style={{ flexDirection: "row", alignItems: "flex-start", }}>

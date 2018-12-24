@@ -6,7 +6,8 @@ export const INITIAL_STATE = {
 
 
 export const TopHeading = (state = INITIAL_STATE, action) => {
-    switch (action.type) {       
+    switch (action.type) { 
+              
         case "API_GET_TOP_NEWS_BY_CATEGORY" :
             return {...state, category:categoryData,refreshing:false}
             

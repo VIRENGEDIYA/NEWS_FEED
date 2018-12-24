@@ -47,7 +47,6 @@ export const Countries = [
             {Name:"Slovakia",Code:"SK"},
             {Name:"South Africa",Code:"ZA"},
             {Name:"Sweden",Code:"SE"},
-            {Name:"Switzerland",Code:"CH"},
             {Name:"Thailand",Code:"TH"},
             {Name:"Turkey",Code:"TR"},
             {Name :"Taiwan",Code:"TW" },

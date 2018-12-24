@@ -15,18 +15,17 @@ export class CategoryNewsList extends Component {
     }
 
     componentDidMount = () => {
-        this._newsData()
+        this.newsData()
     }
 
-    _newsData = () => {
+    newsData = () => {
         this.props.renderList(this.state.category, this.state.page, this.state.pageSize)
     }
 
-    _moreData = () => {
+    moreData = () => {
         this.setState({
             page: this.state.page + 1,
-            // pageSize : this.state.pageSize + 20
-        }, () => this._newsData())
+        }, () => this.newsData())
     }
 
     render() {
@@ -41,7 +40,8 @@ export class CategoryNewsList extends Component {
                         renderItem={({ item }) => <NewsCard article={item} onClick={() => this.props.navigation(item)} />}
                         showsHorizontalScrollIndicator={true}
                         horizontal={false}
-                        ending={() => this._moreData()}
+                        keyExtractor={(item, index) => index.toString()}
+                        ending={() => this.moreData()}
                         onEndReachedThreshold={0}
                     />}
             </View>
