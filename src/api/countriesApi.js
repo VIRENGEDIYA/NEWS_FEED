@@ -4,7 +4,7 @@ import { getTopNewsByCountryWithCategory } from '../actions/topNewsAction'
 export const fetchTopNewsByCountryWithCategory = (country, category, page, pageSize) =>  {
     return (dispatch) => {
         setTimeout(() => {
-           return axios.get(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&page=${page}&pageSize=${pageSize}&apiKey=5a98ae8d682f4866a7a9e2d5e8fe9027`)
+           return axios.get(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&page=${page}&pageSize=${pageSize}&apiKey=df5469ac0e22426490db7aa4a40eace4`)
                 .then(response => {
                     dispatch(getTopNewsByCountryWithCategory(response.data.articles))
                 })

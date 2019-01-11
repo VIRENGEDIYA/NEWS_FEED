@@ -4,7 +4,7 @@ import axios from 'axios'
 export const fetchGeneralNews = (category,page,pageSize) => {
     return (dispatch) => {
          setTimeout(() => {
-             axios.get(`https://newsapi.org/v2/top-headlines?category=${category}&from=${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}&page=${page}&pageSize=${pageSize}&apiKey=5a98ae8d682f4866a7a9e2d5e8fe9027`)
+             axios.get(`https://newsapi.org/v2/top-headlines?category=${category}&from=${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}&page=${page}&pageSize=${pageSize}&apiKey=df5469ac0e22426490db7aa4a40eace4`)
                  .then(response => {
                      switch(category) {
                          case "general":

@@ -71,7 +71,8 @@ export class NewsList extends Component {
         const { topNews, refreshing } = this.props.topNews
         let headingTitle = (this.props.navigation.getParam("country")) && this.props.navigation.getParam("country")
         return (
-            <View>
+            <Container>
+                <Content>
                 <TopHeader
                     title={headingTitle.Name.toUpperCase()}
                     leftIconName={"chevron-left"}
@@ -100,7 +101,8 @@ export class NewsList extends Component {
 
                     />
                 }
-            </View>
+                </Content>
+            </Container>
         )
     }
 }
